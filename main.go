@@ -20,7 +20,7 @@ func main() {
 	nonRepeating := firstNonRepeating(str3)
 	fmt.Println("first non-repeating character:", string(nonRepeating)) //op:p
 
-	//	4.find duplicate characters in a string
+	//4.find duplicate characters in a string
 	duplicate := findDuplicate(str3)
 	fmt.Println("duplicate characters:", duplicate)
 
@@ -33,10 +33,48 @@ func main() {
 		fmt.Println(str4, "is not a palindrome")
 	}
 
-	//6. character frequency in a string
+	//6.character frequency in a string
 	str5 := "hello"
 	freq := charFrequency(str5)
 	fmt.Println("character frequency:", freq)
+
+	//7.find 1st duplicate word in a string
+	duplicateWord := firstDuplicate(str3)
+	fmt.Println("first duplicate word is:", duplicateWord)
+
+	//8.Check whether a string contains only unique characters
+	str6 := "abcdef"
+	unique := isUnique(str6)
+	if unique {
+		fmt.Println(str6, "contains only unique characters")
+	} else {
+		fmt.Println(str6, "copntains duplicate characters")
+	}
+
+}
+
+func isUnique(s string) bool {
+
+	seen := make(map[rune]bool)
+	for _, ch := range s {
+		if seen[ch] {
+			return false
+		}
+		seen[ch] = true
+	}
+	return true
+}
+
+func firstDuplicate(s string) string {
+
+	seen := make(map[rune]bool)
+	for _, ch := range s {
+		if seen[ch] {
+			return string(ch)
+		}
+		seen[ch] = true
+	}
+	return ""
 }
 
 func charFrequency(s string) (freq map[string]int) {
