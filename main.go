@@ -20,6 +20,60 @@ func main() {
 	nonRepeating := firstNonRepeating(str3)
 	fmt.Println("first non-repeating character:", string(nonRepeating)) //op:p
 
+	//	4.find duplicate characters in a string
+	duplicate := findDuplicate(str3)
+	fmt.Println("duplicate characters:", duplicate)
+
+	//5.check if a string is a palindrome
+	str4 := "madam"
+	isPalindrome := isPalindrome(str4)
+	if isPalindrome {
+		fmt.Println(str4, "is a palindrome")
+	} else {
+		fmt.Println(str4, "is not a palindrome")
+	}
+
+	//6. character frequency in a string
+	str5 := "hello"
+	freq := charFrequency(str5)
+	fmt.Println("character frequency:", freq)
+}
+
+func charFrequency(s string) (freq map[string]int) {
+
+	freq = make(map[string]int)
+	for _, ch := range s {
+		freq[string(ch)]++
+	}
+	return freq
+
+}
+
+func isPalindrome(s string) bool {
+
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
+		if r[i] != r[j] {
+			return false
+		}
+	}
+	return true
+}
+
+func findDuplicate(s string) []string {
+
+	duplicates := []string{}
+	count := make(map[rune]int)
+	for _, ch := range s {
+		count[ch]++
+	}
+	for ch, freq := range count {
+		if freq > 1 {
+			duplicates = append(duplicates, string(ch))
+		}
+	}
+	return duplicates
+
 }
 
 func firstNonRepeating(s string) rune {
