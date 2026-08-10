@@ -48,7 +48,7 @@ func main() {
 	if unique {
 		fmt.Println(str6, "contains only unique characters")
 	} else {
-		fmt.Println(str6, "copntains duplicate characters")
+		fmt.Println(str6, "contains duplicate characters")
 	}
 
 }
