@@ -29,5 +29,5 @@ What will be the output?
 Explanation:
 In go, when we embed a struct, all Engine methods are available on the ElectricCar struct - This is called method promotion
 so when we call eCar.start(), it will call the start method of the ElectricCar struct, because ElectricCar defines its own start method. This shadows the promoted method
-if we call explicitly eCar.Engine.start(), then it will point to the start methos of the Engine struct
+if we call explicitly eCar.Engine.start(), then it will point to the start method of the Engine struct
 */
